@@ -14,40 +14,40 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
+	tBodyAcc-XYZ
+	tGravityAcc-XYZ
+	tBodyAccJerk-XYZ
+	tBodyGyro-XYZ
+	tBodyGyroJerk-XYZ
+	tBodyAccMag
+	tGravityAccMag
+	tBodyAccJerkMag
+	tBodyGyroMag
+	tBodyGyroJerkMag
+	fBodyAcc-XYZ
+	fBodyAccJerk-XYZ
+	fBodyGyro-XYZ
+	fBodyAccMag
+	fBodyAccJerkMag
+	fBodyGyroMag
+	fBodyGyroJerkMag
 
-subject 
-Identification code of human subject
+	subject 
+		Identification code of human subject
 
-	1..30		Unique identifier of human subject
+		1..30		Unique identifier of human subject
 
-activity 
-	Activity under measured observation
+	activity 
+		Activity under measured observation
 
-	WALKING
-	WALKING_UPSTAIRS
-	WALKING_DOWNSTAIRS
-	SITTING
-	STANDING
-	LAYING
+		WALKING
+		WALKING_UPSTAIRS
+		WALKING_DOWNSTAIRS
+		SITTING
+		STANDING
+		LAYING
 
 [signal]-mean()-[axis]_avg
-	Average of all observation means for the given signal by 	subject and activity, where [signal] is selected from the 	aforementioned list along with [axis] = {X, Y, Z}.  All 	'Acc' signals are measured in units of gravity, g.  All 	'Gyro' signals are measured in unit of radians/second.
+		Average of all observation means for the given signal 		by subject and activity, where [signal] is selected 			from the aforementioned list along with [axis] = {X, 			Y, Z}.  All 'Acc' signals are measured in units of 			gravity, g.  All 'Gyro' signals are measured in unit 			of radians/second.
 
-	-1..1		Measurement of signal normalized and bounded 				within [-1,1]
+		-1..1		Measurement of signal normalized and 						bounded within [-1,1]
