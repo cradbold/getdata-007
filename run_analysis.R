@@ -7,6 +7,7 @@
 ## commercial use is prohibited. Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca
 ## Oneto, Davide Anguita. November 2012.
 
+## 1.
 #temp <- tempfile()
 temp <- 'getdata-projectfiles-UCI HAR Dataset.zip'
 #download_date <- date()
@@ -15,15 +16,18 @@ base_dir <- 'UCI HAR Dataset'
 test_dir <- paste(base_dir, 'test', sep='/')
 train_dir <- paste(base_dir, 'train', sep='/')
 
+## 2.
 ## List of all features
 features <- read.csv(unz(temp, paste(base_dir, 'features.txt', sep='/')), header=F, sep=' ', na.strings='NA', stringsAsFactors=F)
 features <- features$V2
 
+## 3.
 ## Links the class labels with their activity name
 activities <- read.csv(unz(temp, paste(base_dir, 'activity_labels.txt', sep='/')), header=F, sep=' ', na.strings='NA', stringsAsFactors=F)
 names(activities) <- c('id', 'activity')
 activities$activity <- as.factor(activities$activity)
 
+## 4.
 ## Test subjects (2:24) & labels (1:6) & set
 test_sbj <- read.csv(unz(temp, paste(test_dir, 'subject_test.txt', sep='/')), header=F, sep='', na.strings='NA', stringsAsFactors=F)
 names(test_sbj) <- c('subject')
@@ -36,6 +40,7 @@ test_set <- test_set_raw[,grepl("mean\\(\\)", names(test_set_raw))]
 test_set <- cbind(test_set, test_set_raw[,grepl("std()", names(test_set_raw))])
 test_master <- cbind(test_sbj, test_lbl, test_set)
 
+## 5.
 ## Training subjects (1:30) & labels (1:6) & set
 train_sbj <- read.csv(unz(temp, paste(train_dir, 'subject_train.txt', sep='/')), header=F, sep='', na.strings='NA', stringsAsFactors=F)
 names(train_sbj) <- c('subject')
@@ -48,10 +53,12 @@ train_set <- train_set_raw[,grepl("mean\\(\\)|std\\(\\)", names(train_set_raw))]
 #train_set <- cbind(train_set, train_set_raw[,grepl("std()", names(train_set_raw))])
 train_master <- cbind(train_sbj, train_lbl, train_set)
 
+## 6.
 ## Create unified tidy data
 master <- rbind(test_master, train_master)
 #write.table(master, file="HumanActivityRecognition.txt", row.names=F)
 
+## 7.
 ## Create new data with avg of each var for each activity and each subject
 master_avg <- aggregate(. ~ subject + activity, data=master, FUN=mean)
 master_avg <- master_avg[order(master_avg$subject),]
@@ -60,6 +67,7 @@ for (i in grep("mean|std", names(master_avg))){
 }
 write.table(master_avg, file="HumanActivityRecognition_avg.txt", row.names=F)
 
+## 8.
 ## Cleanup
 rm('base_dir', 'test_dir', 'train_dir', 'features', 'activities')
 rm('test_sbj', 'test_lbl_raw', 'test_lbl', 'test_set', 'test_set_raw')
