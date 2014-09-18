@@ -47,7 +47,7 @@ These signals were used to estimate variables of the feature vector for each pat
 		STANDING
 		LAYING
 
-[signal]-mean()-[axis]_avg
-		Average of all observation means for the given signal 		by subject and activity, where [signal] is selected 			from the aforementioned list along with [axis] = {X, 			Y, Z}.  All 'Acc' signals are measured in units of 			gravity, g.  All 'Gyro' signals are measured in unit 			of radians/second.
+	[signal]-mean()-[axis]_avg
+		Average of all observation means for the given signal by subject and activity, where [signal] is selected from the aforementioned list along with [axis] = {X, Y, Z}.  All 'Acc' signals are measured in units of gravity, g.  All 'Gyro' signals are measured in unit 	of radians/second.
 
 		-1..1		Measurement of signal normalized and 						bounded within [-1,1]
