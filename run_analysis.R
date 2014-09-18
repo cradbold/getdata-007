@@ -50,7 +50,7 @@ train_master <- cbind(train_sbj, train_lbl, train_set)
 
 ## Create unified tidy data
 master <- rbind(test_master, train_master)
-write.table(master, file="HumanActivityRecognition.txt", row.names=F)
+#write.table(master, file="HumanActivityRecognition.txt", row.names=F)
 
 ## Create new data with avg of each var for each activity and each subject
 master_avg <- aggregate(. ~ subject + activity, data=master, FUN=mean)
